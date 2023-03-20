@@ -1,18 +1,20 @@
 package steps;
 
-import helpers.DriverManager;
+import helpers.ConfigCapabilities;
+import driverfactory.DriverManager;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Hooks {
 
-    //public static WebDriver driver;
-    private WebDriver driver;
+    private DesiredCapabilities capabilities = ConfigCapabilities.GetCapabilities();
+    private AndroidDriver<AndroidElement> driver;
     private DriverManager driverManager;
     public Hooks(DriverManager driverManager) {
 
@@ -22,11 +24,8 @@ public class Hooks {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
-        driverManager.createDriver();
+        driverManager.createDriver(capabilities);
         driver = driverManager.getDriver();
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.wikipedia.org/");
     }
 
     @After

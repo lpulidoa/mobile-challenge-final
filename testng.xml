@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Regression" >
-    <test name="Demo" >
+<suite name="The_Suite" >
+    <test name="IMDB" >
         <classes>
             <class name="Runner" />
         </classes>
