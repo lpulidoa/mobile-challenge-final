@@ -26,12 +26,13 @@ public class MovieScreen extends BaseMobileScreen {
     }
 
     public String getPlotOverview() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         waitForElementPresence(plotOverviewId);
         return locateElementUiSelector(plotOverviewId).getText();
     }
 
     public MovieScreen addToWatchlist(){
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         waitForElementClickable(addToWatchlistButtonId);
         locateElementUiSelector(addToWatchlistButtonId).click();
         return this;

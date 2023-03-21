@@ -16,7 +16,7 @@ public class RatingScreen extends BaseMobileScreen{
     protected WebDriverWait wait;
     private final By starsBy = By.xpath("//android.widget.ImageView[contains(@resource-id, \"star\")]");
     private final By confirmRatingButtonBy = By.xpath("//android.widget.LinearLayout[@resource-id=\"com.imdb.mobile:id/rate_title_button\"]");
-    private final By ratingSavedMessageBy = By.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"]");//.id("title");//.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"][@text=\"Rating saved\"]");
+    private final By ratingSavedMessageBy = By.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"]");//.id("title");//.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"][@text=\"Rating saved\"]");//.xpath("//android.widget.TextView[@text=\"Rating saved\"]");
 
     public RatingScreen selectStarRating(int rating){
         List<WebElement> stars = mapToElements(starsBy);

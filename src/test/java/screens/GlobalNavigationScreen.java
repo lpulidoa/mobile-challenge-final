@@ -12,7 +12,6 @@ public class GlobalNavigationScreen extends BaseMobileScreen {
     private final String youPageButtonId = "com.imdb.mobile:id/navigation_you";
 
     public SearchScreen goToSearch(){
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         waitForElementClickable(searchButtonId);
         locateElementUiSelector(searchButtonId).click();
         return new SearchScreen(driver);
