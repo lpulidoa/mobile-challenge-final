@@ -1,11 +1,15 @@
 package screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class UserScreen extends BaseMobileScreen{
+    private static final Logger log = getLogger(UserScreen.class.getName());
     public UserScreen(AndroidDriver driver) {
         super(driver);
     }
@@ -21,6 +25,7 @@ public class UserScreen extends BaseMobileScreen{
     }
 
     public String getExistingListsQty() {
+        log.info("Checking number of existing lists");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return mapToElements(existingListsQtyBy).get(1).getText();
     }

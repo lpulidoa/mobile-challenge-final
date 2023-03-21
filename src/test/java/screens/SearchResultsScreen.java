@@ -18,13 +18,6 @@ public class SearchResultsScreen extends BaseMobileScreen {
     }
     private final String searchBarId = "com.imdb.mobile:id/search_src_text";
     private final String searchResultsId = "com.imdb.mobile:id/suggestion";
-    private final String clearHistoryButtonId = "com.imdb.mobile:id/search_history_clear";
-
-    public SearchResultsScreen waitForResults() {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(locateElementUiSelector(clearHistoryButtonId))));
-        return this;
-    }
 
     public SearchResultsScreen searchMovie(String movieName) {
         locateElementUiSelector(searchBarId).sendKeys(movieName);
@@ -35,7 +28,9 @@ public class SearchResultsScreen extends BaseMobileScreen {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         waitForElementClickable(searchResultsId);
 
+        log.info("Clicking first result");
         locateElementsUiSelector(searchResultsId).get(0).click();
+
         return new MovieScreen(driver);
     }
 

@@ -2,8 +2,6 @@ package screens;
 
 
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -16,7 +14,6 @@ public class BaseMobileScreen {
 
     protected AndroidDriver driver;
     protected WebDriverWait wait;
-    protected JavascriptExecutor jsExecutor;
 
     public BaseMobileScreen(AndroidDriver driver) {
         this.driver = driver;

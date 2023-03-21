@@ -1,12 +1,16 @@
 package screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.apache.logging.log4j.LogManager.getLogger;
+
 public class LoginScreen extends BaseMobileScreen{
+    private static final Logger log = getLogger(LoginScreen.class.getName());
     public LoginScreen(AndroidDriver driver) {
         super(driver);
     }
@@ -18,10 +22,12 @@ public class LoginScreen extends BaseMobileScreen{
     public LoginScreen clickShowPassword() {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         mapToElement(showPasswordCheckboxBy).click();
+
         return this;
     }
 
     public LoginScreen typeEmail(String email) {
+        log.info("Typing email");
         WebElement element = mapToElement(emailBarBy);
         element.click();
         element.sendKeys(email);
@@ -29,6 +35,7 @@ public class LoginScreen extends BaseMobileScreen{
     }
 
     public LoginScreen typePassword(String password) {
+        log.info("Typing password");
         WebElement element = mapToElement(passwordBarBy);
         element.click();
         element.sendKeys(password);
@@ -36,6 +43,7 @@ public class LoginScreen extends BaseMobileScreen{
     }
 
     public UserScreen clickConfirmLogin() {
+        log.info("Confirming login");
         mapToElement(signInButtonBy).click();
         return new UserScreen(driver);
     }

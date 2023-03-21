@@ -1,13 +1,15 @@
 package screens;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
+import static org.apache.logging.log4j.LogManager.getLogger;
 
 public class MovieScreen extends BaseMobileScreen {
+    private static final Logger log = getLogger(MovieScreen.class.getName());
     public MovieScreen(AndroidDriver driver) {
         super(driver);
     }
@@ -22,10 +24,13 @@ public class MovieScreen extends BaseMobileScreen {
 
 
     public String getTitle() {
+        log.info("Checking movie title");
+        waitForElementPresence(movieTitleId);
         return locateElementUiSelector(movieTitleId).getText();
     }
 
     public String getPlotOverview() {
+        log.info("Checking movie plot overview");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         waitForElementPresence(plotOverviewId);
         return locateElementUiSelector(plotOverviewId).getText();
@@ -35,6 +40,8 @@ public class MovieScreen extends BaseMobileScreen {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         waitForElementClickable(addToWatchlistButtonId);
         locateElementUiSelector(addToWatchlistButtonId).click();
+
+        log.info("Element added to watchlist");
         return this;
     }
 
@@ -46,8 +53,8 @@ public class MovieScreen extends BaseMobileScreen {
     }
 
     public String getUserRating() {
+        log.info("Scrolling to user rating");
         locateElementUiScroll(userRatingsSectionId);
-        //driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         waitForElementPresence(userRatingsId);
         return locateElementsUiSelector(userRatingsId).get(1).getText();
     }
