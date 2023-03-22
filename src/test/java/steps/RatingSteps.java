@@ -23,11 +23,12 @@ public class RatingSteps {
     @And("the user rates the first result {int} stars")
     public void theUserRatesTheFirstResultStars(int stars) {
         starsRating = Integer.toString(stars);
-        new SearchResultsScreen( driverManager.getDriver())
+        RatingScreen ratingScreen =new SearchResultsScreen( driverManager.getDriver())
                 .clickFirstResult()
                 .rateMovie()
                 .selectStarRating(stars)
                 .confirmRating();
+        //System.out.println("The saved message is displayed:" + ratingScreen.isSavedMessageDisplayed());
     }
 
     @Then("the user should see the correct rating displayed in the movie page")

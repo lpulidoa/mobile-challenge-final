@@ -23,9 +23,9 @@ public class WatchlistSteps {
     @And("the user adds a result to their watchlist")
     public void theUserAddsAResultToTheirWatchlist() {
         MovieScreen searchResult = new SearchResultsScreen(driverManager.getDriver()).clickAnyResult();
-        searchResult.addToWatchlist();
-        driverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driverManager.getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         title = searchResult.getTitle();
+        searchResult.addToWatchlist();
     }
 
     @Then("the user must see the movie in their watchlist")

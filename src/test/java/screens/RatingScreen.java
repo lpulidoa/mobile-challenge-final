@@ -19,7 +19,7 @@ public class RatingScreen extends BaseMobileScreen{
     protected WebDriverWait wait;
     private final By starsBy = By.xpath("//android.widget.ImageView[contains(@resource-id, \"star\")]");
     private final By confirmRatingButtonBy = By.xpath("//android.widget.LinearLayout[@resource-id=\"com.imdb.mobile:id/rate_title_button\"]");
-    private final By ratingSavedMessageBy = By.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"]");//.id("title");//.xpath("//android.widget.TextView[@resource-id=\"com.imdb.mobile:id/title\"][@text=\"Rating saved\"]");//.xpath("//android.widget.TextView[@text=\"Rating saved\"]");
+    private final By ratingSavedMessageBy = By.xpath("//*[contains(text() , 'Rating saved')]");
 
     public RatingScreen selectStarRating(int rating){
         log.info("Rating movie");
@@ -34,7 +34,14 @@ public class RatingScreen extends BaseMobileScreen{
     public String getSavedMessage() {
         log.info("Locating saved rating message");
         wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(ratingSavedMessageBy));
-        return mapToElement(ratingSavedMessageBy).getText();
+        wait.until(ExpectedConditions.visibilityOf(mapToElement(By.xpath("//*[contains(text() , 'Rating saved')]"))));
+        return mapToElement(By.xpath("//android.widget.TextView[contains(text() , 'Rating saved')]")).getText(); //driver.findElement(ratingSavedMessageBy).getText();
+    }
+
+    public Boolean isSavedMessageDisplayed() {
+        log.info("Locating saved rating message is possible?");
+        wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(mapToElement(ratingSavedMessageBy)));
+        return mapToElement(ratingSavedMessageBy).isDisplayed();
     }
 }

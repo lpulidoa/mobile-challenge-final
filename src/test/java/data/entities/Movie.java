@@ -1,4 +1,4 @@
-package testdata.entities;
+package data.entities;
 
 public class Movie {
     private String name;

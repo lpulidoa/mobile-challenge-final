@@ -3,8 +3,6 @@ package screens;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

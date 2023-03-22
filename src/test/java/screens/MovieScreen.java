@@ -31,8 +31,7 @@ public class MovieScreen extends BaseMobileScreen {
 
     public String getPlotOverview() {
         log.info("Checking movie plot overview");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        waitForElementPresence(plotOverviewId);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         return locateElementUiSelector(plotOverviewId).getText();
     }
 

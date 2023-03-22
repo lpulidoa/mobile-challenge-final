@@ -27,4 +27,5 @@ public class SignInSteps {
                 .typePassword(System.getenv("PASSWORD_IMDB"))
                 .clickConfirmLogin();
     }
+
 }

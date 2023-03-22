@@ -2,6 +2,7 @@ package steps;
 
 import helpers.ConfigCapabilities;
 import driverfactory.DriverManager;
+import helpers.DevicesAvailable;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.cucumber.java.After;
@@ -13,7 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Hooks {
 
-    private DesiredCapabilities capabilities = ConfigCapabilities.GetCapabilities();
+    private DesiredCapabilities capabilities = ConfigCapabilities.getCapabilities(DevicesAvailable.PIXEL2_ANDROID13);
     private AndroidDriver<AndroidElement> driver;
     private DriverManager driverManager;
     public Hooks(DriverManager driverManager) {

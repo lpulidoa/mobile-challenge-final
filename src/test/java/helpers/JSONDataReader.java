@@ -1,7 +1,7 @@
 package helpers;
 
 import com.google.gson.Gson;
-import testdata.entities.Movie;
+import data.entities.Movie;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

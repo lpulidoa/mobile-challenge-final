@@ -8,7 +8,7 @@ import org.testng.Assert;
 import screens.MovieScreen;
 import screens.SearchResultsScreen;
 import screens.SearchScreen;
-import testdata.entities.Movie;
+import data.entities.Movie;
 
 public class SearchSteps {
 

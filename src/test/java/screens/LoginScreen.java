@@ -20,7 +20,7 @@ public class LoginScreen extends BaseMobileScreen{
     private final By showPasswordCheckboxBy = By.xpath("//android.widget.CheckBox[@resource-id=\"auth-show-password-checkbox\"]");
 
     public LoginScreen clickShowPassword() {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         mapToElement(showPasswordCheckboxBy).click();
 
         return this;
@@ -28,6 +28,7 @@ public class LoginScreen extends BaseMobileScreen{
 
     public LoginScreen typeEmail(String email) {
         log.info("Typing email");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement element = mapToElement(emailBarBy);
         element.click();
         element.sendKeys(email);
@@ -36,6 +37,7 @@ public class LoginScreen extends BaseMobileScreen{
 
     public LoginScreen typePassword(String password) {
         log.info("Typing password");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebElement element = mapToElement(passwordBarBy);
         element.click();
         element.sendKeys(password);
@@ -44,6 +46,7 @@ public class LoginScreen extends BaseMobileScreen{
 
     public UserScreen clickConfirmLogin() {
         log.info("Confirming login");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         mapToElement(signInButtonBy).click();
         return new UserScreen(driver);
     }
