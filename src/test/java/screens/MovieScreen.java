@@ -26,7 +26,9 @@ public class MovieScreen extends BaseMobileScreen {
     public String getTitle() {
         log.info("Checking movie title");
         waitForElementPresence(movieTitleId);
-        return locateElementUiSelector(movieTitleId).getText();
+        String title = locateElementUiSelector(movieTitleId).getText();
+        log.info("The title title of the selected movie is: "+ title);
+        return title;
     }
 
     public String getPlotOverview() {

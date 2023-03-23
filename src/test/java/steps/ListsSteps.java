@@ -1,6 +1,6 @@
 package steps;
 
-import driverfactory.DriverManager;
+import helpers.DriverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import screens.GlobalNavigationScreen;

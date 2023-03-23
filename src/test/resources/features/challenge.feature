@@ -11,7 +11,7 @@ Feature: IMDB
     When the user searches for the movie "the menu"
     And the user adds a result to their watchlist
     Then the user must see the movie in their watchlist
-  
+
   Scenario: Authenticate movie rating functionality
     Given the user logs in
     And the user wants to make a search

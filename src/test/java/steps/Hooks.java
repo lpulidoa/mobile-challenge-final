@@ -1,7 +1,7 @@
 package steps;
 
 import helpers.ConfigCapabilities;
-import driverfactory.DriverManager;
+import helpers.DriverManager;
 import helpers.DevicesAvailable;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -25,12 +25,15 @@ public class Hooks {
 
     @Before
     public void setUp(){
+        System.out.println("Setting up capabilities and creating driver");
         driverManager.createDriver(capabilities);
+        System.out.println("Getting driver");
         driver = driverManager.getDriver();
     }
 
     @After
     public void tearDown(Scenario scenario){
+        System.out.println("Quitting driver after scenario");
         if(scenario.isFailed()){
             TakesScreenshot screenshotTaking = (TakesScreenshot) driver;
             byte[] screenshot = screenshotTaking.getScreenshotAs(OutputType.BYTES);

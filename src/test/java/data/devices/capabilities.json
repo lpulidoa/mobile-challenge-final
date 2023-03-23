@@ -1,7 +1,16 @@
 {
-  "deviceName": "emulator-5554",
-  "appPackage": "com.imdb.mobile",
-  "appActivity": "com.imdb.mobile.HomeActivity",
-  "platformName": "Android",
-  "platformVersion": "13.0"
+  "pixel2Android13": {
+    "deviceName": "emulator-5554",
+    "appPackage": "com.imdb.mobile",
+    "appActivity": "com.imdb.mobile.HomeActivity",
+    "platformName": "Android",
+    "platformVersion": "13.0"
+  },
+  "pixel2Android10": {
+    "deviceName": "emulator-5556",
+    "appPackage": "com.imdb.mobile",
+    "appActivity": "com.imdb.mobile.HomeActivity",
+    "platformName": "Android",
+    "platformVersion": "10.0"
+  }
 }

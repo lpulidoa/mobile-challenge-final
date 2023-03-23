@@ -1,6 +1,6 @@
 package steps;
 
-import driverfactory.DriverManager;
+import helpers.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import screens.GlobalNavigationScreen;
@@ -24,8 +24,9 @@ public class WatchlistSteps {
     public void theUserAddsAResultToTheirWatchlist() {
         MovieScreen searchResult = new SearchResultsScreen(driverManager.getDriver()).clickAnyResult();
         driverManager.getDriver().manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-        title = searchResult.getTitle();
         searchResult.addToWatchlist();
+        driverManager.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        title = searchResult.getTitle();
     }
 
     @Then("the user must see the movie in their watchlist")

@@ -28,7 +28,7 @@ public class LoginScreen extends BaseMobileScreen{
 
     public LoginScreen typeEmail(String email) {
         log.info("Typing email");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
         WebElement element = mapToElement(emailBarBy);
         element.click();
         element.sendKeys(email);
