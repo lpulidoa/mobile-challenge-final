@@ -2,7 +2,7 @@ Feature: IMDB
 
   Scenario: Verify searching functionality skipping login
     Given the user wants to make a search skipping login
-    When the user searches for the movie "men in black"
+    When the user searches for the movie "joker"
     Then the user should see the correct overview in the first result page
 
   Scenario: Check successful watchlist addition

@@ -28,7 +28,6 @@ public class RatingSteps {
                 .rateMovie()
                 .selectStarRating(stars)
                 .confirmRating();
-        //System.out.println("The saved message is displayed:" + ratingScreen.isSavedMessageDisplayed());
     }
 
     @Then("the user should see the correct rating displayed in the movie page")
